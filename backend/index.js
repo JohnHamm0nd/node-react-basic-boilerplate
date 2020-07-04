@@ -26,6 +26,10 @@ mongoose.connect(config.mongoURI, {
 //메인페이지
 app.get('/', (req, res) => res.send('Hello nodeJS!'))
 
+//랜딩페이지 테스트
+app.get('/api/hello', (req, res) => res.send('Hello 안녕!'))
+
+
 //회원가입
 //app: express, method: post, route(URL): register, request, response
 //express 에서 app 이라는 변수명으로 /register route(URL) 을 통해 post 요청(request)을 받아서 응답(response) 함
@@ -81,7 +85,7 @@ app.post('api/user/login', (req, res) => {
 
 
 //Authentication
-//auth 라는 미들웨어 사용
+//auth 미들웨어를 만들어 사용
 app.post('api/user/auth', auth, (req, res) => {
     //여기까지 미들웨어를 통과해 왔다는 얘기는 Authentication 이 True 라는 말
     req.status(200).json({

@@ -9,7 +9,7 @@ let auth = (req, res, next) => {
     let token = req.cooikes.x_auth;
     
     //토큰을 복호화 한 후 유저를 찾는다
-    //로그인과 토큰발급과 마찬가지고 User 모델에 메소드를 만들어 사용한다
+    //로그인과 토큰발급과 마찬가지로 User 모델에 메소드를 만들어 사용한다
     User.findByToken(token, (err, user) => {
         //에러 발생시 에러 띄움
         if (err) throw err;
